@@ -73,7 +73,7 @@ def index():
 def add_entry():
     """Adds new post to the database."""
     if not session.get("logged_in"):
-        abort(401)
+        abort(401) # Unauthorized
     new_entry = models.Post(request.form["title"], request.form["text"])
     db.session.add(new_entry)
     db.session.commit()
